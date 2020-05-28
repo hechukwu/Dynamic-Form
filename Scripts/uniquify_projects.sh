@@ -13,7 +13,7 @@ function uniquify_project() {
 local PROJECT_DIR=$1
 local PROJECT_FILE="$PROJECT_DIR"/project.pbxproj
 
-if ! bash xunique -c -p "$PROJECT_FILE" >/dev/null; then
+if ! xunique -c -p "$PROJECT_FILE" >/dev/null; then
 git add "$PROJECT_DIR"/
 fi
 }
