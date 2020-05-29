@@ -39,6 +39,13 @@ class BasicInfoViewController: UIViewController {
         tableView.isHidden = true
     }
 
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+
     @objc func handleDatePicker(sender: UIDatePicker) {
         let indexPath = IndexPath(row: 3, section: 1)
         let cell = tableView.cellForRow(at: indexPath) as? BasicInfoCell
@@ -157,12 +164,19 @@ extension BasicInfoViewController: PetAdoptionDelegate, NextButtonDelegate {
     func onFailure(_ error: String) {
         title = "Unable to fetch pet details"
         tableView.isHidden = true
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+        showAlert(title: "Error", message: error)
     }
 
     func showNextVC() {
+        guard UserDetails.instance.fullname != "",
+            UserDetails.instance.email != "",
+            UserDetails.instance.phoneNumber != "",
+            UserDetails.instance.dob != ""
+              else {
+                showAlert(title: "OOps!", message: "All fields are required.")
+                return
+            }
+        let vc = AboutYourHomeViewController(nibName: "AboutYourHomeViewController", bundle: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
