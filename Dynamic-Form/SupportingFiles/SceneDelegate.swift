@@ -11,13 +11,14 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var navController: UINavigationController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        let vc = BasicInfoViewController(nibName: "BasicInfoViewController", bundle: nil)
+        setRootVC(vc, scene: scene)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -48,5 +49,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    private func setRootVC(_ viewController: UIViewController, scene: UIScene?) {
+        guard let _scene = scene as? UIWindowScene else { return }
+        self.window = UIWindow(windowScene: _scene)
+        if let currentVC = self.window?.rootViewController {
+            debugPrint(currentVC)
+            currentVC.removeFromParent()
+        }
 
+        navController = UINavigationController(rootViewController: viewController)
+
+        self.window?.rootViewController = navController
+        navController?.view.backgroundColor = .clear
+        self.window?.rootViewController?.loadViewIfNeeded()
+        self.window?.makeKeyAndVisible()
+    }
 }
