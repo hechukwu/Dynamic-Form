@@ -8,4 +8,8 @@ struct UserDetails {
     var email = ""
     var phoneNumber = ""
     var dob = ""
+    var userHasYard: Bool?
+    var yardIsFenced = ""
+    var veteneryName = ""
+    var referenceName = ""
 }

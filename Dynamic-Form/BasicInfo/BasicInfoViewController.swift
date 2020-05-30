@@ -83,6 +83,9 @@ class BasicInfoViewController: UIViewController {
         let indexPath = IndexPath(row: 3, section: 1)
         let cell = tableView.cellForRow(at: indexPath) as? BasicInfoCell
         cell?.textfieldType.text = dateFormatter.string(from: sender.date)
+        if let dob = cell?.textfieldType.text {
+            UserDetails.instance.dob = dob.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
     }
 
     @objc func dismissKeyboard() {
@@ -155,6 +158,9 @@ extension BasicInfoViewController: UITextFieldDelegate {
             textField.inputView = datePickerView
             dateFormatter.dateFormat = "MMM dd, yyyy"
             textField.text = dateFormatter.string(from: datePickerView.date)
+            if let dob = textField.text {
+                UserDetails.instance.dob = dob.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
         }
     }
 
