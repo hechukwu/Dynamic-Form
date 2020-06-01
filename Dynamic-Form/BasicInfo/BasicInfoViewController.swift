@@ -4,6 +4,7 @@ import Kingfisher
 class BasicInfoViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var viewModel: PetAdoptionViewModel?
 
@@ -21,6 +22,7 @@ class BasicInfoViewController: UIViewController {
         datePickerView.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
     }
 
     func registerNib() {
@@ -36,13 +38,55 @@ class BasicInfoViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 170
         tableView.rowHeight = UITableView.automaticDimension
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         tableView.isHidden = true
+    }
+
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func validateEntry() -> Bool {
+        guard UserDetails.instance.fullname != "",
+            UserDetails.instance.email != "",
+            UserDetails.instance.phoneNumber != "",
+            UserDetails.instance.dob != ""
+              else {
+                showAlert(title: "OOps!", message: "All fields are required.")
+                return false
+            }
+        let fullnameArray = UserDetails.instance.fullname.components(separatedBy: " ")
+        guard fullnameArray.count > 1 else {
+            showAlert(title: "Error!", message: "Please enter both first and last names.")
+            return false
+        }
+        guard Validators.emailIsValid(email: UserDetails.instance.email) else {
+            showAlert(title: "Error!", message: "Ensure you have a valid email address.")
+            return false
+        }
+        let phoneNumber = UserDetails.instance.phoneNumber.replacingOccurrences(of: " ", with: "")
+        guard phoneNumber.count == 11 else {
+            showAlert(title: "Error!", message: "Phone number must be eleven digits.")
+            return false
+        }
+        guard CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: phoneNumber)) else {
+            showAlert(title: "Error!", message: "Ensure there are no letters in your phoneNumber.")
+            return false
+        }
+        return true
     }
 
     @objc func handleDatePicker(sender: UIDatePicker) {
         let indexPath = IndexPath(row: 3, section: 1)
         let cell = tableView.cellForRow(at: indexPath) as? BasicInfoCell
         cell?.textfieldType.text = dateFormatter.string(from: sender.date)
+        if let dob = cell?.textfieldType.text {
+            UserDetails.instance.dob = dob.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
     }
 
     @objc func dismissKeyboard() {
@@ -115,6 +159,9 @@ extension BasicInfoViewController: UITextFieldDelegate {
             textField.inputView = datePickerView
             dateFormatter.dateFormat = "MMM dd, yyyy"
             textField.text = dateFormatter.string(from: datePickerView.date)
+            if let dob = textField.text {
+                UserDetails.instance.dob = dob.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
         }
     }
 
@@ -142,6 +189,8 @@ extension BasicInfoViewController: UITextFieldDelegate {
 extension BasicInfoViewController: PetAdoptionDelegate, NextButtonDelegate {
 
     func onGetPetModel(response: PetAdoptionModel) {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         guard let vModel = viewModel else { return }
         if let formName = response.name {
             title = formName
@@ -149,20 +198,25 @@ extension BasicInfoViewController: PetAdoptionDelegate, NextButtonDelegate {
             title = "Unable to fetch pet details"
         }
         vModel.pet = response
-        vModel.updateBasicInfoElements(response: response)
+        vModel.updateElements(response: response)
         tableView.reloadData()
         tableView.isHidden = false
     }
 
     func onFailure(_ error: String) {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         title = "Unable to fetch pet details"
         tableView.isHidden = true
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+        showAlert(title: "Error", message: error)
     }
 
     func showNextVC() {
+        guard let vModel = viewModel else { return }
+        if validateEntry() {
+            let vc = AboutYourHomeViewController(nibName: "AboutYourHomeViewController", bundle: nil)
+            vc.viewModel = vModel
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
