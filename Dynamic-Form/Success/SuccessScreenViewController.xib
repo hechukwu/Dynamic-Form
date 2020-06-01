@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuccessScreenViewController" customModule="Dynamic_Form" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="fTJ-47-Bs0" id="WIZ-0h-9z8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joV-eP-wym">
+                    <rect key="frame" x="16" y="104" width="382" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fTJ-47-Bs0">
+                    <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="joV-eP-wym" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="1xj-ic-IFI"/>
+                <constraint firstAttribute="bottom" secondItem="fTJ-47-Bs0" secondAttribute="bottom" id="49P-Xf-jb7"/>
+                <constraint firstItem="fTJ-47-Bs0" firstAttribute="top" secondItem="joV-eP-wym" secondAttribute="bottom" constant="15" id="BVb-gI-wsE"/>
+                <constraint firstItem="joV-eP-wym" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="NxD-T7-4O4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="joV-eP-wym" secondAttribute="trailing" constant="16" id="S3v-97-89x"/>
+                <constraint firstItem="fTJ-47-Bs0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="igv-vx-Vyp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fTJ-47-Bs0" secondAttribute="trailing" id="tON-If-Nk7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="108"/>
+        </view>
+    </objects>
+</document>
