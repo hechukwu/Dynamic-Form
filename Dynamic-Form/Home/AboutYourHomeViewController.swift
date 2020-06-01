@@ -10,6 +10,7 @@ class AboutYourHomeViewController: UIViewController {
     @IBOutlet weak var fencedLabel: UILabel!
     @IBOutlet weak var fencedTextview: UITextView!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var fencedBgView: UIView!
 
     var viewModel: PetAdoptionViewModel?
 
@@ -19,6 +20,7 @@ class AboutYourHomeViewController: UIViewController {
             showAlert(title: "Error", message: "There was an error processing your data, please try again.")
             return
         }
+        fencedBgView.isHidden = true
         yesnoLabel.text = vModel.aboutHomeElements?[0].label
         yesLabel.text = "Yes"
         noLabel.text = "No"
@@ -29,16 +31,34 @@ class AboutYourHomeViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
     }
 
-    @IBAction func yesButtonTapped(_ sender: Any) {
-        noButton.isSelected = false
-        yesButton.isSelected = true
+    @IBAction func yesButtonTapped(_ sender: UIButton) {
         UserDetails.instance.userHasYard = true
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveLinear, animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        }) { success in
+            self.noButton.isSelected = false
+            self.yesButton.isSelected = true
+            self.fencedBgView.isHidden = false
+            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveLinear, animations: {
+                sender.transform = .identity
+            }, completion: nil)
+        }
     }
 
-    @IBAction func noButtonTapped(_ sender: Any) {
-        yesButton.isSelected = false
-        noButton.isSelected = true
+    @IBAction func noButtonTapped(_ sender: UIButton) {
         UserDetails.instance.userHasYard = false
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveLinear, animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        }) { success in
+            self.yesButton.isSelected = false
+            self.noButton.isSelected = true
+            self.fencedBgView.isHidden = true
+            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveLinear, animations: {
+                sender.transform = .identity
+            }, completion: nil)
+        }
     }
 
     @IBAction func nextButtonTapped(_ sender: Any) {
