@@ -25,6 +25,8 @@ class AboutYourHomeViewController: UIViewController {
         fencedTextview.layer.borderWidth = 0.4
         fencedTextview.layer.borderColor = UIColor.black.cgColor
         fencedLabel.text = vModel.aboutHomeElements?[1].label
+        title = vModel.pet?.pages?[1].sections?[0].label
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
     }
 
     @IBAction func yesButtonTapped(_ sender: Any) {

@@ -20,6 +20,8 @@ class AdditionalInfoViewController: UIViewController {
         referenceNameTextfield.delegate = self
         veteneryNameLabel.text = vModel.additionalInfoElements?[0].label
         referenceNameLabel.text = vModel.additionalInfoElements?[1].label
+        title = vModel.pet?.pages?[2].sections?[0].label
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
     }
 
     @IBAction func submitButtonTapped(_ sender: Any) {

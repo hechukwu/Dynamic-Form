@@ -20,6 +20,7 @@
 		35312B0BE04CF4E69D08EFC9DD8A4A7A /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39A73372727DF63E5A54327691F672D /* WelcomeCell.xib */; };
 		369C4134DAE78809C40A6DF73C9DB5A1 /* AboutYourHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872103203CB2A16EA054CD7692D410E /* AboutYourHomeViewController.swift */; };
 		3E96E063BFAF7765295B006A50C80B58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B3C102B28C32E11FB9077F6EA672C4 /* Main.storyboard */; };
+		52B35EB73CB90A3A9F2DF62A9B186CC5 /* SuccessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45B96A7B38506186D74A7F00B2F66F5 /* SuccessCell.swift */; };
 		5355DA332D9FB9D829CE9DF363BC9D0F /* BasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE8D9DC953E9AC638FCC61CFAD8E0B3 /* BasicInfoViewController.swift */; };
 		5519DA55B7612D78485D7525BB6783DD /* UITableViewCell+NibName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480AF3A56004934B2F37280C8CBE2DBC /* UITableViewCell+NibName.swift */; };
 		57E30F860F6F2019354F19B736460ECF /* NextButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F3A018A10EE57DDA6D27899C34F555A /* NextButtonCell.xib */; };
@@ -35,7 +36,9 @@
 		C0958349D17EBFFEAECFFECCB5D216DC /* Pods_Dynamic_Form.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A96B129C90608C51BDF90D6B51C050 /* Pods_Dynamic_Form.framework */; };
 		C618FF9224F77B13455F2051B58192DC /* AboutYourHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0FDE1BE70D7D512D29E700BA61B5DA2 /* AboutYourHomeViewController.xib */; };
 		C6A0B904F83C751199885058B8C032B3 /* PetAdoptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E24FBB29BECFCABDCA937374F60A74 /* PetAdoptionViewModel.swift */; };
+		CB29B5C4B7A158BC977EDFA134E8F181 /* SuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C10264FD00984F810437B567BBD15FEF /* SuccessCell.xib */; };
 		DB761FF11B0B7AA3E45AF83472E36DA5 /* SuccessScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8622C41B34B4CC7DD9DDCA7C309F5B5F /* SuccessScreenViewController.xib */; };
+		E584FB3768296AEC1037AB80677486D3 /* FormAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D4504BE7C80BC83D23F6E95EE9170 /* FormAnswers.swift */; };
 		F87AAB03BD38061B1840B4C700A2C422 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F507BD100BB2E52C4892113328C8D2 /* UserDetails.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,10 +83,13 @@
 		A358DEBE3F4E58DABC8EE62560C2A335 /* PetAdoptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetAdoptionModel.swift; sourceTree = "<group>"; };
 		A8A96B129C90608C51BDF90D6B51C050 /* Pods_Dynamic_Form.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dynamic_Form.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA42C139517CF35FF99CD2D7267B74CE /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
+		AE8D4504BE7C80BC83D23F6E95EE9170 /* FormAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAnswers.swift; sourceTree = "<group>"; };
 		B0FDE1BE70D7D512D29E700BA61B5DA2 /* AboutYourHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutYourHomeViewController.xib; sourceTree = "<group>"; };
 		B39A73372727DF63E5A54327691F672D /* WelcomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
+		C10264FD00984F810437B567BBD15FEF /* SuccessCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessCell.xib; sourceTree = "<group>"; };
 		C548582D826FBA0420016719E0453A2C /* SuccessScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessScreenViewController.swift; sourceTree = "<group>"; };
 		CEB75579F5FB71294B53C9ADAD2F486E /* Pods-Dynamic-FormTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dynamic-FormTests.debug.xcconfig"; path = "Target Support Files/Pods-Dynamic-FormTests/Pods-Dynamic-FormTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D45B96A7B38506186D74A7F00B2F66F5 /* SuccessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessCell.swift; sourceTree = "<group>"; };
 		DBB1CEA68BEFEF709CDF2C9954CD0A6B /* Dynamic-Form.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dynamic-Form.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B9BC2FE2F858A2CABE6EA06D44C4AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EC0A2AD5EE9DA12B6B979B1696725B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +116,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		104DA23E768A7A0A24158A1AA259AC18 /* AdditionalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AA42C139517CF35FF99CD2D7267B74CE /* AdditionalInfoViewController.swift */,
+				68C6CD594A815ABE8BD26F43C9944C49 /* AdditionalInfoViewController.xib */,
+			);
+			path = AdditionalInfo;
+			sourceTree = "<group>";
+		};
+		164F33894DEE9AF6EA301BD3EBF9CCA7 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				DA57610CDD2414768ACA53265805FE8D /* cell */,
+				C548582D826FBA0420016719E0453A2C /* SuccessScreenViewController.swift */,
+				8622C41B34B4CC7DD9DDCA7C309F5B5F /* SuccessScreenViewController.xib */,
+			);
+			path = Success;
+			sourceTree = "<group>";
+		};
 		1B85F44A30FEE8AC5D300BE8CE3E9726 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,28 +173,20 @@
 		3A758E57C03E9CB4EE6D1A293054042B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AE8D4504BE7C80BC83D23F6E95EE9170 /* FormAnswers.swift */,
 				A358DEBE3F4E58DABC8EE62560C2A335 /* PetAdoptionModel.swift */,
 				10F507BD100BB2E52C4892113328C8D2 /* UserDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		104DA23E768A7A0A24158A1AA259AC18 /* AdditionalInfo */ = {
+		DA57610CDD2414768ACA53265805FE8D /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				AA42C139517CF35FF99CD2D7267B74CE /* AdditionalInfoViewController.swift */,
-				68C6CD594A815ABE8BD26F43C9944C49 /* AdditionalInfoViewController.xib */,
+				D45B96A7B38506186D74A7F00B2F66F5 /* SuccessCell.swift */,
+				C10264FD00984F810437B567BBD15FEF /* SuccessCell.xib */,
 			);
-			path = AdditionalInfo;
-			sourceTree = "<group>";
-		};
-		164F33894DEE9AF6EA301BD3EBF9CCA7 /* Success */ = {
-			isa = PBXGroup;
-			children = (
-				C548582D826FBA0420016719E0453A2C /* SuccessScreenViewController.swift */,
-				8622C41B34B4CC7DD9DDCA7C309F5B5F /* SuccessScreenViewController.xib */,
-			);
-			path = Success;
+			path = cell;
 			sourceTree = "<group>";
 		};
 		4D39835CCD737AA6EA186CF6169E5DFB /* JSON */ = {
@@ -405,6 +422,7 @@
 				21D35A86C34287BC9D1138F5815B4A2D /* LaunchScreen.storyboard in Resources */,
 				3E96E063BFAF7765295B006A50C80B58 /* Main.storyboard in Resources */,
 				57E30F860F6F2019354F19B736460ECF /* NextButtonCell.xib in Resources */,
+				CB29B5C4B7A158BC977EDFA134E8F181 /* SuccessCell.xib in Resources */,
 				DB761FF11B0B7AA3E45AF83472E36DA5 /* SuccessScreenViewController.xib in Resources */,
 				35312B0BE04CF4E69D08EFC9DD8A4A7A /* WelcomeCell.xib in Resources */,
 				8377FF52047528DB5EC5A97EB87AD949 /* pet_adoption.json in Resources */,
@@ -487,11 +505,13 @@
 				128C6DAFAB26008366280BAF80F3471F /* AppDelegate.swift in Sources */,
 				62593161264262B5D4703CF89E8A304D /* BasicInfoCell.swift in Sources */,
 				5355DA332D9FB9D829CE9DF363BC9D0F /* BasicInfoViewController.swift in Sources */,
+				E584FB3768296AEC1037AB80677486D3 /* FormAnswers.swift in Sources */,
 				B13101FD033EB496B217C845AFD6EEEF /* NextButtonCell.swift in Sources */,
 				5FFB66D89B754423FEAF3843EEA2F8D6 /* PetAdoptionModel.swift in Sources */,
 				20395D421ADCDFA418E5E1418BCEC00E /* PetAdoptionServce.swift in Sources */,
 				C6A0B904F83C751199885058B8C032B3 /* PetAdoptionViewModel.swift in Sources */,
 				11F0061D3C1D4D65911F25D5EAC9EC15 /* SceneDelegate.swift in Sources */,
+				52B35EB73CB90A3A9F2DF62A9B186CC5 /* SuccessCell.swift in Sources */,
 				2DE259628C41336B74A0CA290E6ECD78 /* SuccessScreenViewController.swift in Sources */,
 				5519DA55B7612D78485D7525BB6783DD /* UITableViewCell+NibName.swift in Sources */,
 				F87AAB03BD38061B1840B4C700A2C422 /* UserDetails.swift in Sources */,

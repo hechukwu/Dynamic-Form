@@ -22,6 +22,7 @@ class BasicInfoViewController: UIViewController {
         datePickerView.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
     }
 
     func registerNib() {
