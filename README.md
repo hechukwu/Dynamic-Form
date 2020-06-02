@@ -8,7 +8,7 @@ One thing that happens when multiple people work on an Xcode project is crazy me
 
 The solution is to sort the file alphabetically prior to any commit.
 
-We accomplish this using a git pre-commit hook that calls `xUnique`.
+I accomplish this using a git pre-commit hook that calls `xUnique`.
 
 ### xUnique
 
